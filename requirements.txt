@@ -1,0 +1,4 @@
+streamlit==1.15.1
+streamlit_lottie==0.0.3
+streamlit-extras
+python-dotenv==0.21.0
