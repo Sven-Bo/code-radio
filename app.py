@@ -11,8 +11,11 @@ THIS_DIR = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 CSS_FILE = THIS_DIR / "style" / "style.css"
 LOTTIE_MUSIC = THIS_DIR / "assets" / "music_animation.json"
 LOTTIE_CHRISTMAS = THIS_DIR / "assets" / "christmas_animation.json"
+LOTTIE_CODE = THIS_DIR / "assets" / "code_animation2.json"
 
 LINKS = {
+    "TechnoBase.FM": r"https://listener1.mp3.tb-group.fm/tb.mp3",
+    "TeaTime.FM": r"https://listener3.mp3.tb-group.fm/tt.mp3",
     "Cadena Dial": r"https://20103.live.streamtheworld.com/CADENADIALAAC.aac?csegid=2000&gdpr=1&gdpr_consent=CPd2dsAPd2dsAAHABBENCcCsAP_AAAAAAAAAI8Nf_X__b3_j-_5___t0eY1f9_7__-0zjhfdl-8N3f_X_L8X_2M7vF36pq4KuR4Eu3LBIQdlHOHcTUmw6okVrzPsbk2cr7NKJ7PEmnMbeydYGH9_n1_z-ZKY7_____77__-_______f__-_f___p_3____f_V_997fn9_____9_P___9v__9__________3__AAAASGgAwABBHgVABgACCPBSADAAEEeB0AGAAII8BIAMAAQR4GQAYAAgjwSgAwABBHghABgACCPAiADAAEEeAAA.f_gAAAAAAAAA&dist=cadenadial-web-tod-permanente&tdsdk=js-2.9&swm=false&pname=TDSdk&pversion=2.9&banners=none&burst-time=15&sbmid=392354e8-aecc-4978-8aae-3577386efef4",
     "FreeCodeCamp": r"https://coderadio-relay-nyc.freecodecamp.org/radio/8010/radio.mp3",
     "Classical music": r"https://live.streams.klassikradio.de/klassikradio-deutschland?aggregator=Webseite&mode=preroll&aw_0_1st.skey=1670323419&cb=417236132&listenerid=6f6d11d633694ff5b778770f7c6d2e47&aw_0_req.userConsentV2=CPjkTwAPjkTwAAFADBDECtCoAP_AAAAAAAYgF7QDgACAAVABBACcAKIAWABaADIAJ4AbgBXADVAIQARMBeYC9gAAAEhIAMAAQL2DQAYAAgXsIgAwABAvYVABgACBewyADAAEC9h0AGAAIF7EIAMAAQL2JQAYAAgXsUgAwABAvYAA.YAAAAAAAAAAA",
@@ -45,12 +48,12 @@ def load_css_file(css_file_path):
 
 
 st.set_page_config(page_title="Radio Livestreams", page_icon=":radio:", initial_sidebar_state="collapsed")
-rain(
-    emoji="❄",
-    font_size=36,
-    falling_speed=5,
-    animation_length="infinite",
-)
+# rain(
+#     emoji="",
+#     font_size=36,
+#     falling_speed=5,
+#     animation_length="infinite",
+# )
 
 load_css_file(CSS_FILE)
 left_col, right_col = st.columns(2)
@@ -59,7 +62,7 @@ with left_col:
     st.write("")
     st.header(":radio: Radio Livestreams")
 with right_col:
-    lottie_music = load_lottiefile(LOTTIE_CHRISTMAS)
+    lottie_music = load_lottiefile(LOTTIE_CODE)
     st_lottie(lottie_music, key="lottie-music", height=150)
 
 surprise_radio, surprise_link = random.choice(list(LINKS.items()))
